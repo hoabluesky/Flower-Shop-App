@@ -24,7 +24,7 @@
 
     <tr>
         <td>{{ item.flower.name }}</td>
-        <td>${{ item.flower.price }}</td>
+        <td>€{{ item.flower.price }}</td>
 
         <td>
             <form
@@ -46,7 +46,7 @@
             </form>
         </td>
 
-        <td>${{ item.subtotal }}</td>
+        <td>€{{ item.subtotal }}</td>
 
         <td>
             <a
@@ -64,7 +64,7 @@
 
 </table>
 
-<h4>Total: ${{ total }}</h4>
+<h4>Total: €{{ total }}</h4>
 
 <a href="/pay" class="btn btn-success">
     Pay Now
