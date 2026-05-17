@@ -245,69 +245,71 @@ def api_pay():
     })
 
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
 
-        if Flower.query.count() == 0:
-            flowers = [
-                Flower(
-                    name='Red Rose',
-                    description='Beautiful red roses',
-                    price=10,
-                    image='rose.jpg'
-                ),
-                Flower(
-                    name='Pink Lily',
-                    description='Elegant pink lilies',
-                    price=12,
-                    image='lily.jpg'
-                ),
-                Flower(
-                    name='Sunflower',
-                    description='Bright yellow sunflower',
-                    price=9,
-                    image='sunflower.jpg'
-                ),
-                Flower(
-                    name='Tulip',
-                    description='Colorful tulips',
-                    price=20,
-                    image='tulip.jpg'
-                ),
-                Flower(
-                    name='Orchid Basket',
-                    description='Premium orchid basket',
-                    price=25,
-                    image='orchid.jpg'
-                ),
-                Flower(
-                    name='Lavender Bundle',
-                    description='Fresh lavender flowers',
-                    price=15,
-                    image='lavender.jpg'
-                ),
-                Flower(
-                    name='Cherry Blossom',
-                    description='Delicate pink cherry blossoms',
-                    price=22,
-                    image='cherry_blossom.jpg'
-                ),
-                Flower(
-                    name='Blue Hydrangea',
-                    description='Beautiful blue hydrangea bouquet',
-                    price=19,
-                    image='hydrangea.jpg'
-                ),
-                Flower(
-                    name='Daisy Mix',
-                    description='Mixed daisy flowers',
-                    price=11,
-                    image='daisy.jpg'
-                )
-            ]
+with app.app_context():
+    db.create_all()
 
-            db.session.bulk_save_objects(flowers)
-            db.session.commit()
+    if Flower.query.count() == 0:
+        flowers = [
+            Flower(
+                name='Red Rose',
+                description='Beautiful red roses',
+                price=10,
+                image='rose.jpg'
+            ),
+            Flower(
+                name='Pink Lily',
+                description='Elegant pink lilies',
+                price=12,
+                image='lily.jpg'
+            ),
+            Flower(
+                name='Sunflower',
+                description='Bright yellow sunflower',
+                price=9,
+                image='sunflower.jpg'
+            ),
+            Flower(
+                name='Tulip',
+                description='Colorful tulips',
+                price=20,
+                image='tulip.jpg'
+            ),
+            Flower(
+                name='Orchid Basket',
+                description='Premium orchid basket',
+                price=25,
+                image='orchid.jpg'
+            ),
+            Flower(
+                name='Lavender Bundle',
+                description='Fresh lavender flowers',
+                price=15,
+                image='lavender.jpg'
+            ),
+            Flower(
+                name='Cherry Blossom',
+                description='Delicate pink cherry blossoms',
+                price=22,
+                image='cherry_blossom.jpg'
+            ),
+            Flower(
+                name='Blue Hydrangea',
+                description='Beautiful blue hydrangea bouquet',
+                price=19,
+                image='hydrangea.jpg'
+            ),
+            Flower(
+                name='Daisy Mix',
+                description='Mixed daisy flowers',
+                price=11,
+                image='daisy.jpg'
+            )
+        ]
+        
+        db.session.bulk_save_objects(flowers)
+        db.session.commit()
 
-    app.run(debug=True)
+    #app.run(debug=True)
+    if __name__ == '__main__':
+        app.run(debug=True)
