@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Flower Shop</h2>
+
+<form method="GET" action="/" class="mb-4">
+    <div class="input-group">
+        <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Search flowers"
+        >
+
+        <button class="btn btn-primary">
+            Search
+        </button>
+    </div>
+</form>
+
+<div class="row">
+
+{% for flower in flowers %}
+
+<div class="col-md-4 mb-4">
+    <div class="card h-100 shadow-sm">
+
+        <img
+            src="{{ url_for('static', filename='images/' + flower.image) }}"
+            class="card-img-top flower-image"
+        >
+
+        <div class="card-body">
+            <h5>{{ flower.name }}</h5>
+
+            <p>{{ flower.description }}</p>
+
+            <p>
+                <strong>${{ flower.price }}</strong>
+            </p>
+
+            <a
+                href="/add_to_cart/{{ flower.id }}"
+                class="btn btn-success"
+            >
+                Add To Cart
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

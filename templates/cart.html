@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Your Cart</h2>
+
+{% if cart_items %}
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Flower</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for item in cart_items %}
+
+    <tr>
+        <td>{{ item.flower.name }}</td>
+        <td>${{ item.flower.price }}</td>
+
+        <td>
+            <form
+                method="POST"
+                action="/update_cart/{{ item.flower.id }}"
+                class="d-flex"
+            >
+                <input
+                    type="number"
+                    name="quantity"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    class="form-control me-2"
+                >
+
+                <button class="btn btn-primary">
+                    Update
+                </button>
+            </form>
+        </td>
+
+        <td>${{ item.subtotal }}</td>
+
+        <td>
+            <a
+                href="/remove_from_cart/{{ item.flower.id }}"
+                class="btn btn-danger"
+            >
+                Remove
+            </a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+<h4>Total: ${{ total }}</h4>
+
+<a href="/pay" class="btn btn-success">
+    Pay Now
+</a>
+
+{% else %}
+
+<p>Cart is empty.</p>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.flower-image {
+    height: 250px;
+    object-fit: contain;
+    background-color: white;
+}
+
+.btn {
+    border-radius: 6px;
+}
+
+.table {
+    background-color: white;
+}
+
+.alert {
+    border-radius: 6px;
+}
